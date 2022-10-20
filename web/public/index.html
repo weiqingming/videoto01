@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<div id="container" style="padding: 0px" onclick=""></div>
+<script>
+    var mountNode = document.getElementById('container');
+</script>
+<script>
+
+    function testaaa(aaa) {
+        alert("Android调用了JS的callJS方法");
+        if(window.nativeCallback) window.nativeCallback();
+    }
+</script>
