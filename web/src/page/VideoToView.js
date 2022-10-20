@@ -19,9 +19,6 @@ class VideoToView extends Component {
      * 在渲染前调用
      * */
     componentWillMount() {
-        let a = window.localStorage.getItem('hehe');
-        if (a) this.name = a;
-        this.ikun = "";
     }
 
     /** 根据ID取组件 */
@@ -45,7 +42,7 @@ class VideoToView extends Component {
     /**
      * 获取后台数据
      */
-    getIkun = () => {
+    getData = () => {
         this.refreshByKey('buttonText', '正在加载中，请稍后...')
 
         // 请求后台数据成功的处理
@@ -97,7 +94,7 @@ class VideoToView extends Component {
                                 cols.push(whiteView)
                             }
                         }
-                        // 往当前显示帧里添加转换好的行方块
+                        // 往当前显示帧里添加转换好的行view
                         this.frameViews.push(<div style={{ display: 'flex', justifyContent: 'center' }}>{cols}</div>);
                     }
                     // 设置后，删除此条数据
@@ -124,10 +121,8 @@ class VideoToView extends Component {
     }
 
     render() {
-
         return (
             <div >
-
                 {/* 播放容器 */}
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     {this.frameViews}
@@ -136,7 +131,7 @@ class VideoToView extends Component {
                 {/* 按钮 */}
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: 15 }}>
                     {
-                        this.buttonText !== '' ? <Button onClick={this.getIkun}>{this.buttonText}</Button> : []
+                        this.buttonText !== '' ? <Button onClick={this.getData}>{this.buttonText}</Button> : []
                     }
                 </div>
 

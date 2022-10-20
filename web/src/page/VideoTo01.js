@@ -16,9 +16,6 @@ class VideoTo01 extends Component {
      * 在渲染前调用
      * */
     componentWillMount() {
-        let a = window.localStorage.getItem('hehe');
-        if (a) this.name = a;
-        this.ikun = "";
     }
 
     /** 根据ID取组件 */
@@ -42,7 +39,7 @@ class VideoTo01 extends Component {
     /**
      * 获取后端数据
      */
-    getIkun = () => {
+    getData = () => {
         this.refreshByKey('buttonText', '正在处理中，请稍后...');
 
         // 请求后台数据成功的处理
@@ -124,7 +121,7 @@ class VideoTo01 extends Component {
                 {/* 播放按钮 */}
                 <div style={{ display: 'flex', justifyContent: 'center', marginTop: 15 }}>
                     {
-                        this.buttonText !== '' ? <Button onClick={this.getIkun}>{this.buttonText}</Button> : []
+                        this.buttonText !== '' ? <Button onClick={this.getData}>{this.buttonText}</Button> : []
                     }
                 </div>
 
